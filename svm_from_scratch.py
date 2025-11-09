@@ -1,30 +1,3 @@
-"""
-Support Vector Machine (SVM) Implementation from Scratch
-
-This implementation uses Sequential Minimal Optimization (SMO) to solve
-the dual optimization problem with Lagrange multipliers.
-
-Mathematical Formulation:
--------------------------
-Primal Problem:
-    minimize: (1/2)||w||² + C Σ ξ_i
-    subject to: y_i(w·x_i + b) ≥ 1 - ξ_i, ξ_i ≥ 0
-
-Dual Problem (solved by SMO):
-    maximize: Σ α_i - (1/2) ΣΣ α_i α_j y_i y_j K(x_i, x_j)
-    subject to: 0 ≤ α_i ≤ C and Σ α_i y_i = 0
-
-where:
-- α_i are Lagrange multipliers
-- K(x_i, x_j) is the kernel function
-- C is the regularization parameter
-
-The SMO algorithm optimizes pairs of α values at a time, where each
-2-variable sub-problem has an analytical closed-form solution.
-
-Support vectors are training points where α_i > 0.
-"""
-
 import numpy as np
 from collections import Counter
 
